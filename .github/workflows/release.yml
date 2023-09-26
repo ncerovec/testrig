@@ -20,15 +20,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Configure GPG Key
-        run: |
-          # Install gpg secret key
-          echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --batch --import
-          # Verify gpg secret key
-          gpg --list-secret-keys --keyid-format LONG
-        env:
-          GPG_SIGNING_KEY: ${{secrets.OSSRH_GPG_SIGNING_KEY_BASE64}}
-
       - name: Checkout Testrig Source Code
         uses: actions/checkout@v3
         with:
@@ -52,6 +43,15 @@ jobs:
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
+
+      - name: Configure GPG Key
+        run: |
+          # Install gpg secret key
+          echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --batch --import
+          # Verify gpg secret key
+          gpg --list-secret-keys --keyid-format LONG
+        env:
+          GPG_SIGNING_KEY: ${{secrets.OSSRH_GPG_SIGNING_KEY_BASE64}}
 
       - name: Cut Testrig Release
         run: >
