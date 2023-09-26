@@ -5,7 +5,7 @@ on:
       branch:
         description: "The branch to checkout when cutting the release."
         required: true
-        default: "master"
+        default: "main"
       releaseVersion:
         description: "Default version to use when preparing a release."
         required: true
@@ -54,7 +54,14 @@ jobs:
           git config user.name "GitHub Actions"
 
       - name: Cut Testrig Release
-        run: mvn clean release:prepare release:perform -B -s .maven-settings.xml -DdryRun=true -Dtag=${{github.event.inputs.releaseVersion}} -DreleaseVersion=${{github.event.inputs.releaseVersion}} "-DscmReleaseCommitComment=@{prefix} @{artifactId} - release version @{releaseLabel}" -DdevelopmentVersion=${{github.event.inputs.developmentVersion}} -DscmDevelopmentCommitComment="@{prefix} @{artifactId} - snapshot version ${{github.event.inputs.developmentVersion}}" -Dgpg.passphrase=${{secrets.OSSRH_GPG_SIGNING_KEY_PASSPHRASE}}
+        run: |
+          mvn clean release:prepare release:perform -B -s .maven-settings.xml \
+          -Dtag=${{github.event.inputs.releaseVersion}} \
+          -DreleaseVersion=${{github.event.inputs.releaseVersion}} \
+          "-DscmReleaseCommitComment=@{prefix} @{artifactId} - release version @{releaseLabel}" \
+          -DdevelopmentVersion=${{github.event.inputs.developmentVersion}} \
+          -DscmDevelopmentCommitComment="@{prefix} @{artifactId} - snapshot version ${{github.event.inputs.developmentVersion}}" \
+          -Dgpg.passphrase=${{secrets.OSSRH_GPG_SIGNING_KEY_PASSPHRASE}}
         env:
           CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
           CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
