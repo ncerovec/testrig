@@ -114,8 +114,8 @@
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                     <releaseProfiles>release</releaseProfiles>
-                    <scmReleaseCommitComment>@{prefix} ${project.artifactId} - release version @{releaseLabel}</scmReleaseCommitComment>
-                    <scmDevelopmentCommitComment>@{prefix} ${project.artifactId} - snapshot version @{developmentVersion}</scmDevelopmentCommitComment>
+                    <scmReleaseCommitComment>@{prefix} ${project.artifactId} - release version ${project.version}</scmReleaseCommitComment>
+                    <scmDevelopmentCommitComment>@{prefix} ${project.artifactId} - snapshot version ${project.version}</scmDevelopmentCommitComment>
                     <goals>deploy</goals>
                 </configuration>
             </plugin>
