@@ -53,7 +53,7 @@ jobs:
           git config user.name "GitHub Actions"
 
       - name: Cut Testrig Release
-        run: mvn release:prepare -B -s .maven-settings.xml -DdryRun=true -DreleaseVersion=${{ github.event.inputs.releaseVersion }} -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SIGNING_KEY_PASSPHRASE }}
+        run: mvn release:prepare -B -s .maven-settings.xml -DreleaseVersion=${{ github.event.inputs.releaseVersion }} -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SIGNING_KEY_PASSPHRASE }}
         env:
           CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
           CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
