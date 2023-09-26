@@ -50,6 +50,8 @@ jobs:
           echo -n "$GPG_SIGNING_KEY" | base64 --decode | gpg --batch --import
           # Verify gpg secret key
           gpg --list-secret-keys --keyid-format LONG
+          # Read gpg secret key (error workaround - signing failed: No pinentry)
+          echo "test" | gpg --clearsign
         env:
           GPG_SIGNING_KEY: ${{secrets.OSSRH_GPG_SIGNING_KEY_BASE64}}
 
