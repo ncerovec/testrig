@@ -44,7 +44,7 @@ jobs:
 
       - name: Cut Testrig Release
         run: >
-            mvn clean release:prepare release:perform -B -DdryRun=true
+            mvn clean release:prepare release:perform -B
             -Dtag=${{github.event.inputs.releaseVersion}}
             -DreleaseVersion=${{github.event.inputs.releaseVersion}}
             "-DscmReleaseCommitComment=@{prefix} @{artifactId} - release version @{releaseLabel}"
