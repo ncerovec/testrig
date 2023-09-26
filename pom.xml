@@ -4,7 +4,7 @@
 
     <groupId>io.github.ncerovec.testrig</groupId>
     <artifactId>testrig</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <name>Testrig</name>
     <description>Testrig for Java and Maven </description>
@@ -32,12 +32,12 @@
     </licenses>
 
     <scm>
+        <tag>HEAD</tag>
         <url>https://github.com/ncerovec/testrig</url>
         <connection>scm:git:git://github.com/ncerovec/testrig.git</connection>
         <developerConnection>scm:git:https://github.com/ncerovec/testrig.git</developerConnection>
         <!-- <developerConnection>scm:git:git@github.com:ncerovec/testrig.git</developerConnection> -->
-      <tag>HEAD</tag>
-  </scm>
+    </scm>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -104,6 +104,10 @@
                     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                     <stagingProfileId>release</stagingProfileId>
                     <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                    <tags>
+                        <localUsername>${env.USER}</localUsername>
+                        <javaVersion>${java.version}</javaVersion>
+                    </tags>
                 </configuration>
             </plugin>
             <plugin>
