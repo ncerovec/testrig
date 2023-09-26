@@ -112,11 +112,12 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${release-plugin.version}</version>
                 <configuration>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <goals>deploy</goals>
                     <releaseProfiles>release</releaseProfiles>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <tag>${project.version}</tag>
                     <scmReleaseCommitComment>@{prefix} ${project.artifactId} - release version ${project.version}</scmReleaseCommitComment>
                     <scmDevelopmentCommitComment>@{prefix} ${project.artifactId} - snapshot version ${project.version}</scmDevelopmentCommitComment>
-                    <goals>deploy</goals>
                 </configuration>
             </plugin>
         </plugins>
