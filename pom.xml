@@ -118,9 +118,6 @@
                     <goals>deploy</goals>
                     <releaseProfiles>release</releaseProfiles>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <tag>${project.version}</tag>
-                    <scmReleaseCommitComment>@{prefix} ${project.artifactId} - release version ${project.version}</scmReleaseCommitComment>
-                    <scmDevelopmentCommitComment>@{prefix} ${project.artifactId} - snapshot version ${project.version}</scmDevelopmentCommitComment>
                 </configuration>
             </plugin>
         </plugins>
