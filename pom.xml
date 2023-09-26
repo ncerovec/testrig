@@ -36,7 +36,8 @@
     <scm>
         <url>https://github.com/ncerovec/testrig</url>
         <connection>scm:git:git://github.com/ncerovec/testrig.git</connection>
-        <developerConnection>scm:git:git@github.com:ncerovec/testrig.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/ncerovec/testrig.git</developerConnection>
+        <!-- <developerConnection>scm:git:git@github.com:ncerovec/testrig.git</developerConnection> -->
     </scm>
 
     <properties>
