@@ -27,7 +27,7 @@ jobs:
           # Verify gpg secret key
           gpg --list-secret-keys --keyid-format LONG
         env:
-          GPG_SIGNING_KEY: ${{ secrets.OSSRH_GPG_SIGNING_KEY_BASE64 }}
+          GPG_SIGNING_KEY: ${{secrets.OSSRH_GPG_SIGNING_KEY_BASE64}}
 
       - name: Checkout Testrig Source Code
         uses: actions/checkout@v3
@@ -55,13 +55,13 @@ jobs:
 
       - name: Cut Testrig Release
         run: >
-          mvn clean release:prepare release:perform -B -s .maven-settings.xml
-          -Dtag=${{github.event.inputs.releaseVersion}}
-          -DreleaseVersion=${{github.event.inputs.releaseVersion}}
-          "-DscmReleaseCommitComment=@{prefix} @{artifactId} - release version @{releaseLabel}"
-          -DdevelopmentVersion=${{github.event.inputs.developmentVersion}}
-          -DscmDevelopmentCommitComment="@{prefix} @{artifactId} - snapshot version ${{github.event.inputs.developmentVersion}}"
-          -Dgpg.passphrase=${{secrets.OSSRH_GPG_SIGNING_KEY_PASSPHRASE}}
+            mvn clean release:prepare release:perform -B -s .maven-settings.xml
+            -Dtag=${{github.event.inputs.releaseVersion}}
+            -DreleaseVersion=${{github.event.inputs.releaseVersion}}
+            "-DscmReleaseCommitComment=@{prefix} @{artifactId} - release version @{releaseLabel}"
+            -DdevelopmentVersion=${{github.event.inputs.developmentVersion}}
+            -DscmDevelopmentCommitComment="@{prefix} @{artifactId} - snapshot version ${{github.event.inputs.developmentVersion}}"
+            -Dgpg.passphrase=${{secrets.OSSRH_GPG_SIGNING_KEY_PASSPHRASE}}
         env:
           CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
           CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}

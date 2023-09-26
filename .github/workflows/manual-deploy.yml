@@ -19,7 +19,7 @@ jobs:
           # Verify gpg secret key
           gpg --list-secret-keys --keyid-format LONG
         env:
-          GPG_SIGNING_KEY: ${{ secrets.OSSRH_GPG_SIGNING_KEY_BASE64 }}
+          GPG_SIGNING_KEY: ${{secrets.OSSRH_GPG_SIGNING_KEY_BASE64}}
 
       - name: Checkout Testrig source code
         uses: actions/checkout@v2
@@ -40,7 +40,10 @@ jobs:
           java-version: 17
 
       - name: Deploy with Maven
-        run: mvn clean deploy -B -P release --file pom.xml -s .maven-settings.xml -Dgpg.passphrase=${{ secrets.OSSRH_GPG_SIGNING_KEY_PASSPHRASE }} -DretryFailedDeploymentCount=10
+        run: > 
+            mvn clean deploy -B -P release --file pom.xml -s .maven-settings.xml
+            -Dgpg.passphrase=${{secrets.OSSRH_GPG_SIGNING_KEY_PASSPHRASE}}
+            -DretryFailedDeploymentCount=10
         env:
           CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
           CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
