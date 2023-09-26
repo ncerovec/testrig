@@ -113,9 +113,10 @@
                 <version>${release-plugin.version}</version>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <useReleaseProfile>true</useReleaseProfile>
                     <releaseProfiles>release</releaseProfiles>
-                    <goals>deploy nexus-staging:release</goals>
+                    <scmReleaseCommitComment>@{prefix} ${project.artifactId} - release version @{releaseLabel}</scmReleaseCommitComment>
+                    <scmDevelopmentCommitComment>@{prefix} ${project.artifactId} - snapshot version @{developmentVersion}</scmDevelopmentCommitComment>
+                    <goals>deploy</goals>
                 </configuration>
             </plugin>
         </plugins>
