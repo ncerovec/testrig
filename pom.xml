@@ -4,7 +4,7 @@
 
     <groupId>io.github.ncerovec.testrig</groupId>
     <artifactId>testrig</artifactId>
-    <version>1.0.5</version>
+    <version>1.1.0-SNAPSHOT</version>
 
     <name>Testrig</name>
     <description>Testrig for Java and Maven </description>
@@ -32,7 +32,7 @@
     </licenses>
 
     <scm>
-        <tag>1.0.5</tag>
+        <tag>HEAD</tag>
         <url>https://github.com/ncerovec/testrig</url>
         <connection>scm:git:git://github.com/ncerovec/testrig.git</connection>
         <developerConnection>scm:git:https://github.com/ncerovec/testrig.git</developerConnection>
