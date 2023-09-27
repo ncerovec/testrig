@@ -42,7 +42,7 @@ jobs:
 
       - name: Deploy with Maven
         run: > 
-            mvn clean deploy -B -e -P release --file pom.xml -s .maven-settings.xml
+            mvn clean deploy -B -X -e -P release --file pom.xml -s .maven-settings.xml
             -Dgpg.passphrase=${{secrets.OSSRH_GPG_SIGNING_KEY_PASSPHRASE}}
             -DretryFailedDeploymentCount=10
         env:
