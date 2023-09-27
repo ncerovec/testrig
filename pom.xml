@@ -103,8 +103,11 @@
                     <serverId>ossrh</serverId>
                     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                     <stagingProfileId>release</stagingProfileId>
-                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                    <stagingRepositoryId>${project.groupId}:${project.artifactId}:${project.version}</stagingRepositoryId>
                     <skipStaging>true</skipStaging>
+                    <keepStagingRepositoryOnCloseRuleFailure>true</keepStagingRepositoryOnCloseRuleFailure>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                    <autoDropAfterRelease>true</autoDropAfterRelease>
                     <tags>
                         <localUsername>${env.USER}</localUsername>
                         <javaVersion>${java.version}</javaVersion>
