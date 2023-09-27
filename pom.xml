@@ -104,6 +104,7 @@
                     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
                     <stagingProfileId>release</stagingProfileId>
                     <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                    <skipStaging>true</skipStaging>
                     <tags>
                         <localUsername>${env.USER}</localUsername>
                         <javaVersion>${java.version}</javaVersion>
