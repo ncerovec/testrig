@@ -4,7 +4,7 @@
 
     <groupId>io.github.ncerovec.testrig</groupId>
     <artifactId>testrig</artifactId>
-    <version>1.0.8-SNAPSHOT</version>
+    <version>1.0.9-SNAPSHOT</version>
 
     <name>Testrig</name>
     <description>Testrig for Java and Maven </description>
@@ -123,7 +123,6 @@
                     <arguments>-X -e</arguments>
                     <releaseProfiles>release</releaseProfiles>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <updateWorkingCopyVersions>false</updateWorkingCopyVersions>
                 </configuration>
             </plugin>
         </plugins>
